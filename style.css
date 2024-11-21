@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --body-bg: linear-gradient(45deg, #FE9A77, #2190FF);
+    --container-bg: #F8F8F8;
+    --container-shadow: 0 0 0.625rem #0C1016;
+    --h1-gradient: linear-gradient(90deg, #0C1016, #0EFEB6);
+    --button-color: #2190FF;
+    --input-border: #0C1016;
+    --input-hover: #2190FF;
+    --button-hover: #FE9A77;
+    --para-color: #0C1016;
+    --toogle-btn: #F8F8F8;
+    --toggle-slider: linear-gradient(45deg, #FE9A77, #2190FF);
+    --switch-hover-color: #2190FF;
+}
+
+body.dark {
+    --body-bg: linear-gradient(45deg, #0EFEB6, #0C1016);
+    --container-bg: #3D4045;
+    --container-shadow: 0 0 0.625rem #2190FF;
+    --h1-gradient: linear-gradient(45deg, #FE9A77, #2190FF);
+    --button-color: #FE9A77;
+    --input-border: #0C1016;
+    --input-hover: #2190FF;
+    --button-hover: #2190FF;
+    --para-color: #F8F8F8;
+    --toogle-btn: #F8F8F8;
+    --switch-hover-color: #2190FF;
+    --toggle-slider: linear-gradient(90deg, #0C1016, #0EFEB6);
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: var(--body-bg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 0 8rem;
+}
+
+.container {
+    text-align: center;
+    background-color: var(--container-bg);
+    padding: 2rem;
+    border-radius: 0.625rem;
+    box-shadow: var(--container-shadow);
+}
+
+h1 {
+    font-size: clamp(1.875rem, 4vw + 1rem, 2.5rem);
+    font-weight: 750;
+    padding: 0 0 1.25rem 0;
+    /* margin-bottom: 0.9375rem; */
+    background: var(--h1-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+p {
+    font-size: clamp(1rem, 4vw + 1rem, 1.25rem);
+    font-weight: 600;
+    /* margin-bottom: 0.9375rem; */
+    padding: 0 0 1.25rem 0;
+    color: var(--para-color);
+}
+
+input {
+    border: 0.1875rem solid var(--input-border);
+    transition: all 0.5s ease-in-out;
+}
+
+input:hover {
+    border: 0.1875rem solid var(--input-hover);
+}
+
+
+button {
+    background-color: var(--button-color);
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+button:hover {
+    background-color: var(--button-hover);
+    color: var(--container-bg);
+    transform: scale(1.1);
+}
+
+input,
+button {
+    padding: 1.25rem;
+    margin: 0.5rem 1.25rem;
+    font-size: 1.25rem;
+    font-family: "Lato";
+    font-weight: 600;
+    border-radius: 0.625rem;
+}
+
+#result {
+    font-weight: bold;
+    padding: 1.25rem 0 0 0;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.theme-toggle label {
+    margin-right: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color .5s ease-in-out;
+}
+
+.theme-toggle label:hover {
+    color: var(--switch-hover-color);
+}
+
+.toggle-checkbox {
+    display: none;
+}
+
+.toggle-slider {
+    width: 3.125rem;
+    height: 1.5625rem;
+    background: var(--toggle-slider);
+    background-repeat: no-repeat;
+    border-radius: 1.5625rem;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.toggle-slider::before {
+    content: "";
+    position: absolute;
+    width: 1.3125rem;
+    height: 1.3125rem;
+    background-color: var(--toogle-btn);
+    border-radius: 50%;
+    top: 0.125rem;
+    left: 0.125rem;
+    transition: transform 0.5s ease-in-out;
+}
+
+.toggle-checkbox:checked+.toggle-slider {
+    background-color: var(--toggle-slider-dark);
+}
+
+.toggle-checkbox:checked+.toggle-slider::before {
+    transform: translateX(25px);
+}
